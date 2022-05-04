@@ -126,9 +126,9 @@ QBCore.Functions.CreateCallback('qb-unicornjob:server:get:ingredientHulk', funct
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local whiskey = Ply.Functions.GetItemByName("whiskey")
+    local syrup = Ply.Functions.GetItemByName("v-sugar-syrup")
     local vodka = Ply.Functions.GetItemByName("vodka")
-    local syrup = Ply.Functions.GetItemByName("v-syrup-sugar")
-    if whiskey ~= nil and vodka ~= nil and syrup ~= nil then
+    if whiskey ~= nil and syrup ~= nil and vodka ~= nil then
         cb(true)
     else
         cb(false)
