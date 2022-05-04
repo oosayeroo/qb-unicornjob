@@ -8,12 +8,12 @@ local onDuty = false
 -- target
 
 Citizen.CreateThread(function()
-	exports['qb-target']:AddBoxZone("VunicornDuty", vector3(128.28, -1279.72, 29.27), 1, 1.2, {
+	exports['qb-target']:AddBoxZone("VunicornDuty", vector3(128.55, -1279.62, 29.40), 1, 1.2, {
 		name = "VunicornDuty",
 		heading = 23.78,
 		debugPoly = false,
 		minZ=29.0,
-		maxZ=29.5,
+		maxZ=30.3,
 	}, {
 		options = {
 		    {  
@@ -26,22 +26,177 @@ Citizen.CreateThread(function()
 		distance = 1.5
 	})
 
-		exports['qb-target']:AddBoxZone("drinks_tray_1", vector3(130.26, -1285.33, 29.27), 1.05, 1.0, {
-			name = "drinks_tray_1",
-			heading = 123.0,
+		exports['qb-target']:AddBoxZone("drinkstable1", vector3(124.33, -1284.02, 29.27), 1.05, 1.0, {
+			name = "drinkstable1", 
+			heading = 83.0,
 			debugPoly = false,
 			minZ=28.8,
+			maxZ=30.0,
+		}, {
+			options = {
+			    {
+				event = "qb-unicornjob:Table1",
+				icon = "far fa-clipboard",
+				label = "Table 1",
+			    },
+			},
+			distance = 1.5
+		}) 
+
+        exports['qb-target']:AddBoxZone("drinkstable2", vector3(125.94, -1286.87, 29.27), 1.05, 1.0, {
+			name = "drinkstable2", 
+			heading = 161.0,
+			debugPoly = false,
+			minZ=28.8,
+			maxZ=30.0,
+		}, {
+			options = {
+			    {
+				event = "qb-unicornjob:Table2",
+				icon = "far fa-clipboard",
+				label = "Table 2",
+			    },
+			},
+			distance = 1.5
+		}) 
+
+        exports['qb-target']:AddBoxZone("drinkstable3", vector3(123.46, -1294.98, 29.69), 1.05, 1.0, {
+			name = "drinkstable3", 
+			heading = 30.0,
+			debugPoly = false,
+			minZ=28.0,
+			maxZ=30.0,
+		}, {
+			options = {
+			    {
+				event = "qb-unicornjob:Table3",
+				icon = "far fa-clipboard",
+				label = "Table 3",
+			    },
+			},
+			distance = 1.5
+		}) 
+
+        exports['qb-target']:AddBoxZone("drinkstable4", vector3(120.03, -1296.87, 29.73), 1.05, 1.0, {
+			name = "drinkstable4", 
+			heading = 30.0,
+			debugPoly = false,
+			minZ=28.0,
+			maxZ=30.0,
+		}, {
+			options = {
+			    {
+				event = "qb-unicornjob:Table4",
+				icon = "far fa-clipboard",
+				label = "Table 4",
+			    },
+			},
+			distance = 1.5
+		}) 
+
+        exports['qb-target']:AddBoxZone("drinkstable5", vector3(122.36, -1287.58, 28.26), 1.05, 1.0, {
+			name = "drinkstable5", 
+			heading = 30.0,
+			debugPoly = false,
+			minZ=27.5,
 			maxZ=29.5,
 		}, {
 			options = {
 			    {
-				event = "qb-unicornjob:Tray1",
+				event = "qb-unicornjob:Table5",
 				icon = "far fa-clipboard",
-				label = "Tray 1",
+				label = "Table 5",
 			    },
 			},
 			distance = 2.0
-		})
+		}) 
+
+        exports['qb-target']:AddBoxZone("drinkstable6", vector3(120.98, -1285.01, 28.68), 1.05, 1.0, {
+			name = "drinkstable56", 
+			heading = 30.0,
+			debugPoly = false,
+			minZ=27.5,
+			maxZ=30.0,
+		}, {
+			options = {
+			    {
+				event = "qb-unicornjob:Table6",
+				icon = "far fa-clipboard",
+				label = "Table 6",
+			    },
+			},
+			distance = 2.0
+		}) 
+
+        exports['qb-target']:AddBoxZone("drinkstable7", vector3(117.57, -1282.94, 29.17), 1.05, 1.0, {
+			name = "drinkstable7", 
+			heading = 30.0,
+			debugPoly = false,
+			minZ=27.5,
+			maxZ=30.0,
+		}, {
+			options = {
+			    {
+				event = "qb-unicornjob:Table7",
+				icon = "far fa-clipboard",
+				label = "Table 7",
+			    },
+			},
+			distance = 2.0
+		}) 
+
+        exports['qb-target']:AddBoxZone("drinkstable8", vector3(112.86, -1282.9, 28.88), 1.05, 1.0, {
+			name = "drinkstable8", 
+			heading = 30.0,
+			debugPoly = false,
+			minZ=27.5,
+			maxZ=30.0,
+		}, {
+			options = {
+			    {
+				event = "qb-unicornjob:Table8",
+				icon = "far fa-clipboard",
+				label = "Table 8",
+			    },
+			},
+			distance = 2.0
+		}) 
+
+        exports['qb-target']:AddBoxZone("drinkstable9", vector3(115.86, -1286.87, 28.88), 1.05, 1.0, {
+			name = "drinkstable9", 
+			heading = 30.0,
+			debugPoly = false,
+			minZ=27.5,
+			maxZ=30.0,
+		}, {
+			options = {
+			    {
+				event = "qb-unicornjob:Table9",
+				icon = "far fa-clipboard",
+				label = "Table 9",
+			    },
+			},
+			distance = 2.0
+		}) 
+
+
+        exports['qb-target']:AddBoxZone("drinkstable10", vector3(116.44, -1291.5, 28.68), 1.05, 1.0, {
+			name = "drinkstable10", 
+			heading = 30.0,
+			debugPoly = false,
+			minZ=27.5,
+			maxZ=30.0,
+		}, {
+			options = {
+			    {
+				event = "qb-unicornjob:Table10",
+				icon = "far fa-clipboard",
+				label = "Table 10",
+			    },
+			},
+			distance = 2.0
+		}) 
+
 
 
 	exports['qb-target']:AddBoxZone("vhomebrewed", vector3(129.98, -1282.18, 29.27), 2.2, 0.6, {
@@ -54,7 +209,7 @@ Citizen.CreateThread(function()
 		options = {
 		    {
 			event = "qb-menu:Homebrewed",
-			icon = "fas fa-filter",
+			icon = "fas fa-cocktail",
 			label = "Original Cocktails",
 			job = "vunicorn",
 		    },
@@ -81,12 +236,12 @@ Citizen.CreateThread(function()
                 distance = 1.5
             })
 
-        exports['qb-target']:AddBoxZone("vunicornstorage", vector3(93.18, -1291.51, 29.26), 4.6, 1.2, {
+        exports['qb-target']:AddBoxZone("vunicornstorage", vector3(130.26, -1285.33, 29.27), 4.6, 1.2, {
             name="vunicornstorage",
-            heading=22.54,
+            heading=123.54,
             debugPoly=false,
-            minZ=28.0,
-            maxZ=30.0,
+            minZ=28.8,
+			maxZ=29.5,
         }, {
                 options = {
                     {
@@ -110,7 +265,7 @@ Citizen.CreateThread(function()
                 options = {
                     {
                         event = "qb-menu:V-Classics",
-                        icon = "fas fa-cheeseburger",
+                        icon = "fas fa-cocktail",
                         label = "Classic Cocktails",
                         job = "vunicorn",
                     },
@@ -119,12 +274,12 @@ Citizen.CreateThread(function()
             })
 
 
-        exports['qb-target']:AddBoxZone("vunicorn_register", vector3(132.54, -1286.42, 29.27), 0.5, 0.4, {
+        exports['qb-target']:AddBoxZone("vunicorn_register", vector3(133.25, -1285.96, 29.77), 0.5, 0.4, {
             name="vunicorn_register",
             debugPoly=false,
             heading=301,
             minZ=29.0,
-            maxZ=29.7,
+            maxZ=30.7,
         }, {
                 options = {
                     {

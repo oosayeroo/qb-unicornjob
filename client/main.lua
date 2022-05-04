@@ -18,6 +18,18 @@ function DrawText3Ds(x, y, z, text)
     ClearDrawOrigin()
 end
 
+Citizen.CreateThread(function()
+    Unicorn = AddBlipForCoord(131.58, -1303.13, 29.23)
+    SetBlipSprite (Unicorn, 121)
+    SetBlipDisplay(Unicorn, 4)
+    SetBlipScale  (Unicorn, 0.7)
+    SetBlipAsShortRange(Unicorn, true)
+    SetBlipColour(Unicorn, 8)
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentSubstringPlayerName("Unicorn")
+    EndTextCommandSetBlipName(Unicorn)
+end)
+
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
@@ -47,28 +59,91 @@ AddEventHandler("qb-unicornjob:DutyB", function()
     TriggerServerEvent("QBCore:ToggleDuty")
 end)
 
-RegisterNetEvent("qb-unicornjob:Tray1")
-AddEventHandler("qb-unicornjob:Tray1", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "vunicorntray1")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "vunicorntray1", {
+RegisterNetEvent("qb-unicornjob:Table1")
+AddEventHandler("qb-unicornjob:Table1", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable1")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable1", {
         maxweight = 10000,
         slots = 6,
     })
 end)
 
-RegisterNetEvent("qb-unicornjob:Tray4")
-AddEventHandler("qb-unicornjob:Tray4", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "vunicorntray4")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "vunicorntray4", {
+RegisterNetEvent("qb-unicornjob:Table2")
+AddEventHandler("qb-unicornjob:Table2", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable2")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable2", {
         maxweight = 10000,
         slots = 6,
     })
 end)
 
-RegisterNetEvent("qb-unicornjob:Tray3")
-AddEventHandler("qb-unicornjob:Tray3", function()
-    TriggerEvent("inventory:client:SetCurrentStash", "vunicorntray3")
-    TriggerServerEvent("inventory:server:OpenInventory", "stash", "vunicorntray3", {
+RegisterNetEvent("qb-unicornjob:Table4")
+AddEventHandler("qb-unicornjob:Table4", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable4")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable4", {
+        maxweight = 10000,
+        slots = 6,
+    })
+end)
+
+RegisterNetEvent("qb-unicornjob:Table3")
+AddEventHandler("qb-unicornjob:Table3", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable3")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable3", {
+        maxweight = 10000,
+        slots = 6,
+    })
+end)
+
+RegisterNetEvent("qb-unicornjob:Table5")
+AddEventHandler("qb-unicornjob:Table5", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable5")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable5", {
+        maxweight = 10000,
+        slots = 6,
+    })
+end)
+
+RegisterNetEvent("qb-unicornjob:Table6")
+AddEventHandler("qb-unicornjob:Table6", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable6")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable6", {
+        maxweight = 10000,
+        slots = 6,
+    })
+end)
+
+RegisterNetEvent("qb-unicornjob:Table7")
+AddEventHandler("qb-unicornjob:Table7", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable7")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable7", {
+        maxweight = 10000,
+        slots = 6,
+    })
+end)
+
+RegisterNetEvent("qb-unicornjob:Table8")
+AddEventHandler("qb-unicornjob:Table8", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable8")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable8", {
+        maxweight = 10000,
+        slots = 6,
+    })
+end)
+
+RegisterNetEvent("qb-unicornjob:Table9")
+AddEventHandler("qb-unicornjob:Table9", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable9")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable9", {
+        maxweight = 10000,
+        slots = 6,
+    })
+end)
+
+RegisterNetEvent("qb-unicornjob:Table10")
+AddEventHandler("qb-unicornjob:Table10", function()
+    TriggerEvent("inventory:client:SetCurrentStash", "drinkstable10")
+    TriggerServerEvent("inventory:server:OpenInventory", "stash", "drinkstable10", {
         maxweight = 10000,
         slots = 6,
     })
@@ -250,7 +325,7 @@ end)
 RegisterNetEvent("qb-unicornjob:MakeOldFashioned")
 AddEventHandler("qb-unicornjob:MakeOldFashioned", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-unicornjob:server:get:ingredientOldFasioned', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('qb-unicornjob:server:get:ingredientOldFashioned', function(HasItems)  
     		if HasItems then
 				QBCore.Functions.Progressbar("pickup_sla", "Making Old Fashioned..", 4000, false, true, {
 					disableMovement = true,
@@ -382,7 +457,7 @@ end)
 RegisterNetEvent("qb-unicornjob:MakeHulk")
 AddEventHandler("qb-unicornjob:MakeHulk", function()
     if onDuty then
-    	QBCore.Functions.TriggerCallback('qb-unicornjob:server:get:ingredientOldFasioned', function(HasItems)  
+    	QBCore.Functions.TriggerCallback('qb-unicornjob:server:get:ingredientHulk', function(HasItems)  
     		if HasItems then
 				QBCore.Functions.Progressbar("pickup_sla", "Making a Hulk..", 4000, false, true, {
 					disableMovement = true,
