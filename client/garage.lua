@@ -65,8 +65,8 @@ function loadAnimDict(dict)
 end
 
 RegisterNetEvent('qb-unicornjob:garage')
-AddEventHandler('qb-unicornjob:garage', function(bs)
-    local vehicle = bs.vehicle
+AddEventHandler('qb-unicornjob:garage', function(vu)
+    local vehicle = vu.vehicle
     local coords = vector4(141.87, -1279.58, 29.29, 300.03)
         if PlayerData.job.name == "vunicorn" then
             if vehicle == 'schafter3' then		
@@ -85,8 +85,8 @@ AddEventHandler('qb-unicornjob:garage', function(bs)
 end)
 
 RegisterNetEvent('qb-unicornjob:garage2')
-AddEventHandler('qb-unicornjob:garage2', function(bs)
-    local vehicle = bs.vehicle
+AddEventHandler('qb-unicornjob:garage2', function(vu)
+    local vehicle = vu.vehicle
     local coords = vector4(142.03, -1282.91, 28.82, 300.45)
         if PlayerData.job.name == "vunicorn" then
             if vehicle == 'toros' then		
