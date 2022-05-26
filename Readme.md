@@ -1,6 +1,6 @@
 # A Vanilla Unicorn Job for QBCore Framework
 
-Discord - https://discord.gg/XPuqBVtyqX
+Discord - https://discord.gg/3WYz3zaqG5
 
 
 ## Please note
