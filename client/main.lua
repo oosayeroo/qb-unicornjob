@@ -522,5 +522,5 @@ end)
    
 RegisterNetEvent("qb-unicornjob:shop")
 AddEventHandler("qb-unicornjob:shop", function()
-    TriggerServerEvent("inventory:server:OpenInventory", "shop", "vunicorn", Config.Items)
+    TriggerServerEvent("inventory:server:OpenInventory", "vunicornbar", "vunicorn", Config.Items)
 end)
