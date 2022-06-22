@@ -5,7 +5,7 @@ Config.GaragePedLocations = {
 }
 
 Config.Items = {
-label = "Shop",
+label = "vunicornbar",
     slots = 9,
     items = {
         [1] = {
