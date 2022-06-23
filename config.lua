@@ -4,6 +4,32 @@ Config.GaragePedLocations = {
     {coords = vector4(136.39, -1278.38, 29.36, 305.41)},
 }
 
+Config.VUDrawtext = "enabled"
+Config.JobName = "vunicorn"
+Config.VunicornLocations = {
+    ["vunicorn-duty"] = {
+        [1] = vector3(128.55, -1279.62, 29.40),
+    },
+    ["drinks-1"] = {
+        [1] = vector3(129.98, -1282.18, 29.27),
+    },
+    ["vunicorn-menu"] = {
+        [1] = vector3(94.98, -1292.79, 29.26),
+    },
+    ["vunicorn-storage"] = {
+        [1] = vector3(130.26, -1285.33, 29.27),
+    },
+    ["drinks-2"] = {
+        [1] = vector3(128.69, -1282.7, 29.27),
+    },
+    ["vunicorn-register"] = {
+        [1] = vector3(133.25, -1285.96, 29.27),
+    },
+    ["vunicorn-garage"] = {
+        [1] = vector3(136.39, -1278.38, 29.36),
+    },
+}
+
 Config.Items = {
 label = "Shop",
     slots = 9,
