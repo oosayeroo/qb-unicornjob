@@ -167,6 +167,135 @@ AddEventHandler("qb-unicornjob:Storage2", function()
     })
 end)
 
+CreateThread(function()
+    if Config.VUDrawText == "enabled" then 
+        while true do
+            sleep = 100
+            local pos = GetEntityCoords(PlayerPedId())
+            local PlayerData = QBCore.Functions.GetPlayerData()
+  
+                if PlayerJob.name == Config.JobName then
+                    for k, v in pairs(Config.VunicornLocations["vunicorn-duty"]) do
+                        local dist = #(pos - v)
+                            if dist < 1.8 then
+                              DrawMarker(2, v.x, v.y, v.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.2, 0.15, 16, 227, 86, 86, false, false, false, true, false, false, false)                              if dist < 1.8 then
+                                    sleep = 5
+                                    if not onDuty then
+                                        QBCore.Functions.DrawText3D(v.x, v.y, v.z +0.2, "~g~E~w~ - Go on duty")
+                                        --QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~r~E~w~ - Go off duty")
+                                    else
+                                        QBCore.Functions.DrawText3D(v.x, v.y, v.z +0.2, "~r~E~w~ - Go off duty")
+                                        --QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~E~w~ - Go on duty")
+                                    end
+                                    if IsControlJustReleased(0, 38) then
+                                        onDuty = not onDuty
+                                        TriggerServerEvent("QBCore:ToggleDuty")
+                                    end
+                                end
+                            elseif #(pos - v) < 1.5 then
+                                sleep = false
+                                QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Time Clock")
+                            end
+                        end
+                    end
+  
+                --[[  for k, v in pairs(Config.VunicornLocations["weed-tray1"]) do
+                  if #(pos - vector3(v.x, v.y, v.z)) < 0.9 then
+                      sleep = 5
+                      QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Access Tray")
+                      if IsControlJustReleased(0, 38) then
+                          TriggerEvent("qb-weedshop:Tray1")
+                      end
+                  elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                      sleep = 5
+                      QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Tray")
+                  end
+              end ]]
+  
+                if PlayerJob.name == Config.JobName and QBCore.Functions.GetPlayerData().job.onduty then
+                for k, v in pairs(Config.VunicornLocations["drinks-1"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 0.8 then
+                      sleep = 5
+                      QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Original Cocktails")
+                        if IsControlJustReleased(0, 38) then
+                            TriggerEvent("qb-menu:Homebrewed")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 2.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Original Cocktails")
+                    end
+                  end
+  
+                for k, v in pairs(Config.VunicornLocations["vunicorn-menu"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 0.9 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Access Menu")
+                        if IsControlJustReleased(0, 38) then
+                            TriggerEvent("qb-menu:OrderMenu")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Menu")
+                    end
+                end
+  
+                for k, v in pairs(Config.VunicornLocations["vunicorn-storage"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Open Storage")
+                        if IsControlJustReleased(0, 38) then
+                            TriggerEvent("qb-unicornjob:Storage")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Open Storage")
+                    end
+                end
+  
+                for k, v in pairs(Config.VunicornLocations["drinks-2"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Classic Cocktails")
+                        if IsControlJustReleased(0, 38) then
+                            TriggerEvent("qb-menu:V-Classics")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Classic Cocktails")
+                    end
+                end
+  
+                  for k, v in pairs(Config.VunicornLocations["vunicorn-register"]) do
+                      if #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                          sleep = 5
+                          QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Charge Customer")
+                          if IsControlJustReleased(0, 38) then
+                              TriggerEvent("qb-unicornjob:bill")
+                          end
+                      elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                          sleep = 5
+                          QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Charge Customer")
+                      end
+                  end
+ 
+                for k, v in pairs(Config.VunicornLocations["vunicorn-garage"]) do
+                    if #(pos - vector3(v.x, v.y, v.z)) < 1.0 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Access Garage")
+                        if IsControlJustReleased(0, 38) then
+                          TriggerEvent("qb-unicornjob:garage")
+                        end
+                    elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
+                        sleep = 5
+                        QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Garage")
+                    end
+                end
+            end
+        Wait(sleep)
+    end
+    end
+  end)
+
 --Meal Creations
 RegisterNetEvent("qb-unicornjob:v-shots-pack")
 AddEventHandler("qb-unicornjob:v-shots-pack", function()
