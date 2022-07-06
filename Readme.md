@@ -1,3 +1,5 @@
+# Updated - 06/07/22 - Added progress bar to opening items thanks to "TheManHimself" for putting it together.
+
 # A Vanilla Unicorn Job for QBCore Framework
 
 
