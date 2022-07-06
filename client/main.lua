@@ -296,62 +296,132 @@ CreateThread(function()
     end
   end)
 
---Meal Creations
-RegisterNetEvent("qb-unicornjob:v-shots-pack")
-AddEventHandler("qb-unicornjob:v-shots-pack", function()
-		local randomToy = math.random(10,10)
-		--remove box
-		TriggerServerEvent('QBCore:Server:RemoveItem', "v-shots-pack", 1)
+RegisterNetEvent('qb-unicornjob:v-shots-pack', function()
+    QBCore.Functions.Progressbar('name_here', 'Opening a pack of shots...', 2000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {
+        animDict = 'mini@repair',
+        anim = 'fixing_a_ped',
+        flags = 16,
+    }, {}, {}, function()
+		TriggerServerEvent('QBCore:Server:RemoveItem', "v-shots-pack", 1)		
 		--add items from box
 		TriggerServerEvent('QBCore:Server:AddItem', "shot-absinthe", 1)
 		TriggerServerEvent('QBCore:Server:AddItem', "shot-snakebite", 1)
 		TriggerServerEvent('QBCore:Server:AddItem', "shot-redsnapper", 1)
 		TriggerServerEvent('QBCore:Server:AddItem', "shot-fireball", 1)
+        TriggerServerEvent('qb-unicornjob:v-shots-pack')
+        QBCore.Functions.Notify('You opened a pack of shots!', 'primary', 7500)
+        ClearPedTasks(PlayerPedId())
+    end)
 end)
 
-RegisterNetEvent("qb-unicornjob:vodka-crate")
-AddEventHandler("qb-unicornjob:vodka-crate", function()
-		local randomToy = math.random(10,10)
-		--remove box
-		TriggerServerEvent('QBCore:Server:RemoveItem', "vodka-crate", 1)
+
+RegisterNetEvent('qb-unicornjob:vodka-crate', function()
+    QBCore.Functions.Progressbar('name_here', 'Opening a crate of vodka...', 2000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {
+        animDict = 'mini@repair',
+        anim = 'fixing_a_ped',
+        flags = 16,
+    }, {}, {}, function()
+		TriggerServerEvent('QBCore:Server:RemoveItem', "vodkacrate", 1)		
 		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "vodka", 10)
+		TriggerServerEvent('QBCore:Server:AddItem', "vodka", 5)
+        TriggerServerEvent('qb-unicornjob:vodka-crate')
+        QBCore.Functions.Notify('You opened a pack of vodka!', 'primary', 7500)
+        ClearPedTasks(PlayerPedId())
+    end)
 end)
 
-RegisterNetEvent("qb-unicornjob:whiskey-box")
-AddEventHandler("qb-unicornjob:whiskey-box", function()
-		local randomToy = math.random(10,10)
-		--remove box
-		TriggerServerEvent('QBCore:Server:RemoveItem', "whiskey-box", 1)
+
+RegisterNetEvent('qb-unicornjob:whiskey-box', function()
+    QBCore.Functions.Progressbar('name_here', 'Opening a box of whiskey...', 2000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {
+        animDict = 'mini@repair',
+        anim = 'fixing_a_ped',
+        flags = 16,
+    }, {}, {}, function()
+		TriggerServerEvent('QBCore:Server:RemoveItem', "whiskey-box", 1)		
 		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "whiskey", 6)
+		TriggerServerEvent('QBCore:Server:AddItem', "whiskey", 5)
+        TriggerServerEvent('qb-unicornjob:whiskey-box')
+        QBCore.Functions.Notify('You opened a box of whiskey!', 'primary', 7500)
+        ClearPedTasks(PlayerPedId())
+    end)
 end)
 
-RegisterNetEvent("qb-unicornjob:beer-crate")
-AddEventHandler("qb-unicornjob:beer-crate", function()
-		local randomToy = math.random(10,10)
-		--remove box
-		TriggerServerEvent('QBCore:Server:RemoveItem', "beer-crate", 1)
+
+RegisterNetEvent('qb-unicornjob:beer-crate', function()
+    QBCore.Functions.Progressbar('name_here', 'Opening a crate of beer...', 2000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {
+        animDict = 'mini@repair',
+        anim = 'fixing_a_ped',
+        flags = 16,
+    }, {}, {}, function()
+		TriggerServerEvent('QBCore:Server:RemoveItem', "beer-crate", 1)		
 		--add items from box
 		TriggerServerEvent('QBCore:Server:AddItem', "beer", 12)
+        TriggerServerEvent('qb-unicornjob:beer-crate')
+        QBCore.Functions.Notify('You opened a crate of beer!', 'primary', 7500)
+        ClearPedTasks(PlayerPedId())
+    end)
 end)
 
-RegisterNetEvent("qb-unicornjob:tequila-crate")
-AddEventHandler("qb-unicornjob:tequila-crate", function()
-		local randomToy = math.random(10,10)
-		--remove box
-		TriggerServerEvent('QBCore:Server:RemoveItem', "tequila-crate", 1)
+
+RegisterNetEvent('qb-unicornjob:tequila-crate', function()
+    QBCore.Functions.Progressbar('name_here', 'Opening a crate of tequila...', 2000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {
+        animDict = 'mini@repair',
+        anim = 'fixing_a_ped',
+        flags = 16,
+    }, {}, {}, function()
+		TriggerServerEvent('QBCore:Server:RemoveItem', "tequila-crate", 1)		
 		--add items from box
 		TriggerServerEvent('QBCore:Server:AddItem', "tequila", 8)
+        TriggerServerEvent('qb-unicornjob:tequila-crate')
+        QBCore.Functions.Notify('You opened a crate of tequila!', 'primary', 7500)
+        ClearPedTasks(PlayerPedId())
+    end)
 end)
 
-RegisterNetEvent("qb-unicornjob:fruit-box")
-AddEventHandler("qb-unicornjob:fruit-box", function()
-		local randomToy = math.random(10,10)
-		--remove box
-		TriggerServerEvent('QBCore:Server:RemoveItem', "fruit-box", 1)
+
+RegisterNetEvent('qb-unicornjob:fruit-box', function()
+    QBCore.Functions.Progressbar('name_here', 'Opening a box of fruit...', 2000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = false,
+        disableCombat = true,
+    }, {
+        animDict = 'mini@repair',
+        anim = 'fixing_a_ped',
+        flags = 16,
+    }, {}, {}, function()
+		TriggerServerEvent('QBCore:Server:RemoveItem', "fruit-box", 1)		
 		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "fruit-mix", 20)
+		TriggerServerEvent('QBCore:Server:AddItem', "fruit-mix", 8)
+        TriggerServerEvent('qb-unicornjob:fruit-box')
+        QBCore.Functions.Notify('You opened a box of fruit!', 'primary', 7500)
+        ClearPedTasks(PlayerPedId())
+    end)
 end)
 
 RegisterNetEvent("qb-unicornjob:MakeEspressoMartini")
