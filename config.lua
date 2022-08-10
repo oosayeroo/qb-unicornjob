@@ -30,7 +30,7 @@ Config.VunicornLocations = {
     },
 }
 
-Config.Items = {
+Config.UnicornItems = {
 label = "Shop",
     slots = 9,
     items = {
