@@ -4,6 +4,14 @@ Config.GaragePedLocations = {
     {coords = vector4(136.39, -1278.38, 29.36, 305.41)},
 }
 
+----////ITEMS/////---- amount of each item to get when unboxing
+Config.ShotsAmount = 5 
+Config.VodkaAmount = 5 
+Config.WhiskeyAmount = 5 
+Config.BeerAmount = 12
+Config.TequilaAmount = 8
+Config.FruitAmount = 5
+
 Config.VUDrawtext = "enabled"
 Config.JobName = "vunicorn"
 Config.VunicornLocations = {
