@@ -199,19 +199,6 @@ CreateThread(function()
                         end
                     end
   
-                --[[  for k, v in pairs(Config.VunicornLocations["weed-tray1"]) do
-                  if #(pos - vector3(v.x, v.y, v.z)) < 0.9 then
-                      sleep = 5
-                      QBCore.Functions.DrawText3D(v.x, v.y, v.z, "~g~[E]~w~ - Access Tray")
-                      if IsControlJustReleased(0, 38) then
-                          TriggerEvent("qb-weedshop:Tray1")
-                      end
-                  elseif #(pos - vector3(v.x, v.y, v.z)) < 1.5 then
-                      sleep = 5
-                      QBCore.Functions.DrawText3D(v.x, v.y, v.z, "Access Tray")
-                  end
-              end ]]
-  
                 if PlayerJob.name == Config.JobName and QBCore.Functions.GetPlayerData().job.onduty then
                 for k, v in pairs(Config.VunicornLocations["drinks-1"]) do
                     if #(pos - vector3(v.x, v.y, v.z)) < 0.8 then
@@ -307,13 +294,7 @@ RegisterNetEvent('qb-unicornjob:v-shots-pack', function()
         anim = 'fixing_a_ped',
         flags = 16,
     }, {}, {}, function()
-		TriggerServerEvent('QBCore:Server:RemoveItem', "v-shots-pack", 1)		
-		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "shot-absinthe", 1)
-		TriggerServerEvent('QBCore:Server:AddItem', "shot-snakebite", 1)
-		TriggerServerEvent('QBCore:Server:AddItem', "shot-redsnapper", 1)
-		TriggerServerEvent('QBCore:Server:AddItem', "shot-fireball", 1)
-        TriggerServerEvent('qb-unicornjob:v-shots-pack')
+		TriggerServerEvent('qb-unicornjob:server:shotpack')
         QBCore.Functions.Notify('You opened a pack of shots!', 'primary', 7500)
         ClearPedTasks(PlayerPedId())
     end)
@@ -331,10 +312,7 @@ RegisterNetEvent('qb-unicornjob:vodka-crate', function()
         anim = 'fixing_a_ped',
         flags = 16,
     }, {}, {}, function()
-		TriggerServerEvent('QBCore:Server:RemoveItem', "vodkacrate", 1)		
-		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "vodka", 5)
-        TriggerServerEvent('qb-unicornjob:vodka-crate')
+		TriggerServerEvent('qb-unicornjob:server:vodkacrate')
         QBCore.Functions.Notify('You opened a pack of vodka!', 'primary', 7500)
         ClearPedTasks(PlayerPedId())
     end)
@@ -352,10 +330,7 @@ RegisterNetEvent('qb-unicornjob:whiskey-box', function()
         anim = 'fixing_a_ped',
         flags = 16,
     }, {}, {}, function()
-		TriggerServerEvent('QBCore:Server:RemoveItem', "whiskey-box", 1)		
-		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "whiskey", 5)
-        TriggerServerEvent('qb-unicornjob:whiskey-box')
+		TriggerServerEvent('qb-unicornjob:server:whiskeybox')
         QBCore.Functions.Notify('You opened a box of whiskey!', 'primary', 7500)
         ClearPedTasks(PlayerPedId())
     end)
@@ -373,10 +348,7 @@ RegisterNetEvent('qb-unicornjob:beer-crate', function()
         anim = 'fixing_a_ped',
         flags = 16,
     }, {}, {}, function()
-		TriggerServerEvent('QBCore:Server:RemoveItem', "beer-crate", 1)		
-		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "beer", 12)
-        TriggerServerEvent('qb-unicornjob:beer-crate')
+		TriggerServerEvent('qb-unicornjob:server:beerbox')
         QBCore.Functions.Notify('You opened a crate of beer!', 'primary', 7500)
         ClearPedTasks(PlayerPedId())
     end)
@@ -394,10 +366,7 @@ RegisterNetEvent('qb-unicornjob:tequila-crate', function()
         anim = 'fixing_a_ped',
         flags = 16,
     }, {}, {}, function()
-		TriggerServerEvent('QBCore:Server:RemoveItem', "tequila-crate", 1)		
-		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "tequila", 8)
-        TriggerServerEvent('qb-unicornjob:tequila-crate')
+		TriggerServerEvent('qb-unicornjob:server:tequilacrate')
         QBCore.Functions.Notify('You opened a crate of tequila!', 'primary', 7500)
         ClearPedTasks(PlayerPedId())
     end)
@@ -415,10 +384,7 @@ RegisterNetEvent('qb-unicornjob:fruit-box', function()
         anim = 'fixing_a_ped',
         flags = 16,
     }, {}, {}, function()
-		TriggerServerEvent('QBCore:Server:RemoveItem', "fruit-box", 1)		
-		--add items from box
-		TriggerServerEvent('QBCore:Server:AddItem', "fruit-mix", 8)
-        TriggerServerEvent('qb-unicornjob:fruit-box')
+		TriggerServerEvent('qb-unicornjob:server:fruitbox')
         QBCore.Functions.Notify('You opened a box of fruit!', 'primary', 7500)
         ClearPedTasks(PlayerPedId())
     end)
@@ -439,9 +405,7 @@ AddEventHandler("qb-unicornjob:MakeEspressoMartini", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "coffee", 1)
-                    			TriggerServerEvent('QBCore:Server:RemoveItem', "vodka", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "v-espressomartini", 1)
+					TriggerServerEvent('qb-unicornjob:server:espresso')
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["v-espressomartini"], "add")
                     			QBCore.Functions.Notify("You made a An Espresso Martini", "success")
 				end, function()
@@ -471,10 +435,7 @@ AddEventHandler("qb-unicornjob:MakeMargarita", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "tequila", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "v-sugar-syrup", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "fruit-mix", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "v-margarita", 1)
+					TriggerServerEvent('qb-unicornjob:server:margaritatata')
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["v-margarita"], "add")
                     			QBCore.Functions.Notify("You made a Margarita", "success")
 				end, function()
@@ -504,9 +465,7 @@ AddEventHandler("qb-unicornjob:MakeManhattan", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "whiskey", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "v-sugar-syrup", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "v-manhattan", 1)
+					TriggerServerEvent('qb-unicornjob:server:manhattan')
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["v-manhattan"], "add")
                     			QBCore.Functions.Notify("You made a Manhattan", "success")
 				end, function()
@@ -536,10 +495,7 @@ AddEventHandler("qb-unicornjob:MakeOldFashioned", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "whiskey", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "v-sugar-syrup", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "v-bitter", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "v-oldfashioned", 1)
+					TriggerServerEvent('qb-unicornjob:server:oldfash')
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["v-oldfashioned"], "add")
                     			QBCore.Functions.Notify("You made an Old Fashioned", "success")
 				end, function()
@@ -569,10 +525,7 @@ AddEventHandler("qb-unicornjob:MakeSparkles", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "vodka", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "v-sugar-syrup", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "fruit-mix", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "v-sparkles", 1)
+					TriggerServerEvent('qb-unicornjob:server:sparkle')
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["v-sparkles"], "add")
                     			QBCore.Functions.Notify("You made a Sparkles", "success")
 				end, function()
@@ -602,10 +555,7 @@ AddEventHandler("qb-unicornjob:MakeUnicorn", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "whiskey", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "v-sugar-syrup", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "fruit-mix", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "v-unicorn", 1)
+					TriggerServerEvent('qb-unicornjob:server:unicorndrink')
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["v-unicorn"], "add")
                     			QBCore.Functions.Notify("You made a Unicorn", "success")
 				end, function()
@@ -635,10 +585,7 @@ AddEventHandler("qb-unicornjob:MakeDancerz", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "beer", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "vodka", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "v-bitter", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "v-dancerz", 1)
+					TriggerServerEvent('qb-unicornjob:server:dancerzz')
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["v-dancerz"], "add")
                     			QBCore.Functions.Notify("You made a Dancerz", "success")
 				end, function()
@@ -668,10 +615,7 @@ AddEventHandler("qb-unicornjob:MakeHulk", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "whiskey", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "v-sugar-syrup", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "vodka", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "v-hulk", 1)
+					TriggerServerEvent('qb-unicornjob:server:hulkmake')
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["v-hulk"], "add")
                     			QBCore.Functions.Notify("You made a Hulk", "success")
 				end, function()
@@ -701,10 +645,7 @@ AddEventHandler("qb-unicornjob:MakeClass", function()
 					anim = "givetake1_a",
 					flags = 8,
 				}, {}, {}, function() -- Done
-					TriggerServerEvent('QBCore:Server:RemoveItem', "fruit-mix", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "v-sugar-syrup", 1)
-					TriggerServerEvent('QBCore:Server:RemoveItem', "coffee", 1)
-					TriggerServerEvent('QBCore:Server:AddItem', "v-class", 1)
+					TriggerServerEvent('qb-unicornjob:server:unicorndrink')
                     			TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["v-class"], "add")
                     			QBCore.Functions.Notify("You made a Class", "success")
 				end, function()
