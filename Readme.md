@@ -210,31 +210,3 @@ QBShared.Jobs = {
 	},
 }		
 ```
-
-
-
-## Insert into @qb-management - client - config.lua
-```
-['vunicorn'] = vector3(93.44, -1292.99, 29.26),
-```
-# if not making use of qb-target no need to insert this into qb-target
-
-## Insert into @qb-target - init.lua - config.targetmodels
-``` 
-["vunicorn"] = {
-			models = {
-				"s_m_m_bouncer_01"
-			},
-			options = {
-				{
-					type = "client",
-					event = "garage:V-UnicornGarage",
-					icon = "fas fa-car",
-					label = "Vanilla Unicorn Garage",
-					job = "vunicorn",
-				}
-			},
-			distance = 2.5,
-		},
-
-```

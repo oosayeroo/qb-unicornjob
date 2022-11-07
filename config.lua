@@ -1,8 +1,7 @@
 Config = {}
 
-Config.GaragePedLocations = {
-    {coords = vector4(136.39, -1278.38, 29.36, 305.41)},
-}
+Config.GarageModel = 's_m_m_bouncer_01'
+Config.GarageLocation = vector4(136.39, -1278.38, 29.36, 305.41)
 
 ----////ITEMS/////---- amount of each item to get when unboxing
 Config.ShotsAmount = 5 
