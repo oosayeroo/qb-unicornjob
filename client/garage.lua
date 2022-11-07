@@ -22,47 +22,27 @@ AddEventHandler('QBCore:Player:SetPlayerData', function(val)
 end)
 
 Citizen.CreateThread(function()
-	while true do
-		Citizen.Wait(1000)
-		for k, v in pairs(Config.GaragePedLocations) do
-			local pos = GetEntityCoords(PlayerPedId())	
-			local dist = #(pos - vector3(v.coords.x, v.coords.y, v.coords.z))
-			
-			if dist < 40 and not pedspawned then
-				TriggerEvent('qb-unicornjob:spawn:ped', v.coords)
-				pedspawned = true
-			end
-			if dist >= 35 then
-				pedspawned = false
-				DeletePed(npc)
-			end
-		end
-	end
+    exports['qb-target']:SpawnPed({
+        model = Config.GarageModel,
+        coords = Config.GarageLocation, 
+        minusOne = true, --may have to change this if your ped is in the ground
+        freeze = true, 
+        invincible = true, 
+        blockevents = true,
+        scenario = 'WORLD_HUMAN_GUARD_STAND',
+        target = { 
+            options = {
+                {
+                    type="client",
+                    event = "garage:V-UnicornGarage",
+                    icon = "fas fa-car",
+                    label = "Big Larry"
+                }
+            },
+          distance = 2.5,
+        },
+    })
 end)
-
-RegisterNetEvent('qb-unicornjob:spawn:ped')
-AddEventHandler('qb-unicornjob:spawn:ped',function(coords)
-	local hash = `s_m_m_bouncer_01`
-
-	RequestModel(hash)
-	while not HasModelLoaded(hash) do 
-		Wait(10)
-	end
-
-    	pedspawned = true
-        npc = CreatePed(5, hash, coords.x, coords.y, coords.z - 1.0, coords.w, false, false)
-        FreezeEntityPosition(npc, true)
-        SetBlockingOfNonTemporaryEvents(npc, true)
-        loadAnimDict("amb@world_human_cop_idles@male@idle_b") 
-        TaskPlayAnim(npc, "amb@world_human_cop_idles@male@idle_b", "idle_e", 8.0, 1.0, -1, 17, 0, 0, 0, 0)
-end)
-
-function loadAnimDict(dict)
-    RequestAnimDict(dict)
-    while not HasAnimDictLoaded(dict) do
-        Citizen.Wait(5)
-    end
-end
 
 RegisterNetEvent('qb-unicornjob:garage')
 AddEventHandler('qb-unicornjob:garage', function(vu)
@@ -117,7 +97,7 @@ RegisterNetEvent('garage:V-UnicornGarage', function()
     exports['qb-menu']:openMenu({
         {
             header = "| V Unicorn Garage |",
-            isMenuHeader = true, -- Set to true to make a nonclickable title
+            isMenuHeader = true, 
         },
         {
             header = "• Schafter V12",
