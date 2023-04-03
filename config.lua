@@ -11,7 +11,7 @@ Config.BeerAmount = 12
 Config.TequilaAmount = 8
 Config.FruitAmount = 5
 
-Config.VUDrawtext = "enabled"
+Config.VUDrawText = "enabled"
 Config.JobName = "vunicorn"
 Config.VunicornLocations = {
     ["vunicorn-duty"] = {
